@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+</head>
+<body>
+    <label for="number">Введите число:</label>
+    <input type="number" id="number" placeholder="Введите число">
+    <button id="calculate-factorial">Вычислить факториал</button>
+    <p id="factorial-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("calculate-factorial").addEventListener("click", () => {
+                const number = parseInt(document.getElementById("number").value);
+
+                function factorial(n) {
+                    return n === 0 ? 1 : n * factorial(n - 1);
+                }
+
+                const result = factorial(number);
+                document.getElementById("factorial-result").innerText = `Факториал ${number} = ${result}`;
+            });
+        });
+    </script>
+</body>
+</html>

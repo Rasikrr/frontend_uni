@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Calculator</title>
+</head>
+<body>
+    <h3>Введите два числа и выберите операцию:</h3>
+    <label for="num1">Первое число:</label>
+    <input type="number" id="num1" placeholder="Введите первое число">
+    <br>
+    <label for="num2">Второе число:</label>
+    <input type="number" id="num2" placeholder="Введите второе число">
+    <br><br>
+    <label for="operation">Операция:</label>
+    <select id="operation">
+        <option value="+">Сложение (+)</option>
+        <option value="-">Вычитание (-)</option>
+        <option value="*">Умножение (*)</option>
+        <option value="/">Деление (/)</option>
+    </select>
+    <br><br>
+    <button id="calculate">Вычислить</button>
+    <p id="result"></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const calculateButton = document.getElementById("calculate");
+        
+        calculateButton.addEventListener("click", () => {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operation = document.getElementById("operation").value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Введите оба числа!";
+            } else {
+                // Выполняем операцию
+                if (operation === "+") {
+                    result = num1 + num2;
+                } else if (operation === "-") {
+                    result = num1 - num2;
+                } else if (operation === "*") {
+                    result = num1 * num2;
+                } else if (operation === "/") {
+                    if (num2 === 0) {
+                        result = "Деление на 0 невозможно!";
+                    } else {
+                        result = num1 / num2;
+                    }
+                }
+            }
+
+            document.getElementById("result").innerText = `Результат: ${result}`;
+        });
+    });
+    </script>
+</body>
+</html>

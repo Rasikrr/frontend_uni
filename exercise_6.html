@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types</title>
+</head>
+<body>
+    <button id="show-info">Показать информацию</button>
+    <p id="info"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const showInfoButton = document.getElementById("show-info");
+            showInfoButton.addEventListener("click", () => {
+                let myName = "Rassul";
+                let myAge = 19;
+                let isStudent = true;
+
+                document.getElementById("info").innerText = `Имя: ${myName}, Возраст: ${myAge}, Студент: ${isStudent}`;
+            });
+        });
+    </script>
+</body>
+</html>

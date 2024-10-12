@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence</title>
+</head>
+<body>
+    <label for="fibonacci-num">Введите число:</label>
+    <input type="number" id="fibonacci-num" placeholder="Введите число">
+    <button id="calculate-fibonacci">Вычислить последовательность Фибоначчи</button>
+    <p id="fibonacci-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("calculate-fibonacci").addEventListener("click", () => {
+                const num = parseInt(document.getElementById("fibonacci-num").value);
+                let fibSequence = [0, 1];
+
+                for (let i = 2; i <= num; i++) {
+                    fibSequence.push(fibSequence[i - 1] + fibSequence[i - 2]);
+                }
+
+                document.getElementById("fibonacci-result").innerText = `Последовательность Фибоначчи до ${num}: ${fibSequence.join(', ')}`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date</title>
+</head>
+<body>
+    <button id="show-current-date">Показать текущую дату</button>
+    <p id="current-date"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("show-current-date").addEventListener("click", () => {
+                document.getElementById("current-date").innerText = new Date().toLocaleDateString();
+            });
+        });
+    </script>
+</body>
+</html>

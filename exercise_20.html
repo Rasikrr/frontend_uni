@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Until New Year</title>
+</head>
+<body>
+    <button id="calculate-days">Посчитать дни до Нового года</button>
+    <p id="days-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("calculate-days").addEventListener("click", () => {
+                const today = new Date();
+                const nextYear = new Date(today.getFullYear() + 1, 0, 1);
+                const timeDiff = nextYear - today;
+                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+                document.getElementById("days-result").innerText = `Дней до Нового года: ${daysLeft}`;
+            });
+        });
+    </script>
+</body>
+</html>

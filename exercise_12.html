@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Checker</title>
+</head>
+<body>
+    <label for="number">Введите число:</label>
+    <input type="number" id="number" placeholder="Число">
+    <button id="check-even-odd">Проверить</button>
+    <p id="even-odd-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("check-even-odd").addEventListener("click", () => {
+                const number = parseInt(document.getElementById("number").value);
+                const result = number % 2 === 0 ? "четное" : "нечетное";
+                document.getElementById("even-odd-result").innerText = `Число ${number} — ${result}`;
+            });
+        });
+    </script>
+</body>
+</html>

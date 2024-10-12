@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seconds to Hours and Minutes</title>
+</head>
+<body>
+    <label for="seconds">Введите количество секунд:</label>
+    <input type="number" id="seconds" placeholder="Введите секунды">
+    <button id="convert-time">Преобразовать</button>
+    <p id="time-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("convert-time").addEventListener("click", () => {
+                const seconds = parseInt(document.getElementById("seconds").value);
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+
+                document.getElementById("time-result").innerText = `${seconds} секунд = ${hours} часов и ${minutes} минут`;
+            });
+        });
+    </script>
+</body>
+</html>

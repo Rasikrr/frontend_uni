@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Frequent Number</title>
+</head>
+<body>
+    <label for="numbers">Введите числа через запятую:</label>
+    <input type="text" id="numbers" placeholder="Введите числа">
+    <button id="find-most-frequent">Найти наиболее частое</button>
+    <p id="frequent-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("find-most-frequent").addEventListener("click", () => {
+                const numbers = document.getElementById("numbers").value.split(',').map(Number);
+                const frequency = {};
+                let maxFreq = 0;
+                let mostFrequent;
+
+                numbers.forEach(num => {
+                    frequency[num] = (frequency[num] || 0) + 1;
+                    if (frequency[num] > maxFreq) {
+                        maxFreq = frequency[num];
+                        mostFrequent = num;
+                    }
+                });
+
+                document.getElementById("frequent-result").innerText = `Наиболее часто встречающееся число: ${mostFrequent}`;
+            });
+        });
+    </script>
+</body>
+</html>

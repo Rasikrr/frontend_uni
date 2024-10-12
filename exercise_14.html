@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Area Calculator</title>
+</head>
+<body>
+    <label for="side1">Сторона 1:</label>
+    <input type="number" id="side1" placeholder="Введите длину стороны 1">
+    <br>
+    <label for="side2">Сторона 2:</label>
+    <input type="number" id="side2" placeholder="Введите длину стороны 2">
+    <br>
+    <label for="side3">Сторона 3:</label>
+    <input type="number" id="side3" placeholder="Введите длину стороны 3">
+    <br>
+    <button id="calculate-area">Вычислить площадь</button>
+    <p id="area-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("calculate-area").addEventListener("click", () => {
+                const a = parseFloat(document.getElementById("side1").value);
+                const b = parseFloat(document.getElementById("side2").value);
+                const c = parseFloat(document.getElementById("side3").value);
+                
+                const s = (a + b + c) / 2;
+                const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+                
+                document.getElementById("area-result").innerText = `Площадь треугольника: ${area.toFixed(2)}`;
+            });
+        });
+    </script>
+</body>
+</html>

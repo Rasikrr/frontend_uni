@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowels and Consonants Counter</title>
+</head>
+<body>
+    <label for="inputString">Введите строку:</label>
+    <input type="text" id="inputString" placeholder="Введите строку">
+    <button id="count">Подсчитать гласные и согласные</button>
+    <p id="count-result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("count").addEventListener("click", () => {
+                const str = document.getElementById("inputString").value.toLowerCase();
+                const vowels = str.match(/[aeiouаеёиоуыэюя]/gi)?.length || 0;
+                const consonants = str.match(/[bcdfghjklmnpqrstvwxyzбвгджзйклмнпрстфхцчшщ]/gi)?.length || 0;
+
+                document.getElementById("count-result").innerText = `Гласные: ${vowels}, Согласные: ${consonants}`;
+            });
+        });
+    </script>
+</body>
+</html>
