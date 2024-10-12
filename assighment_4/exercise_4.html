@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <input type="number" id="num1" placeholder="Первое число">
+    <input type="number" id="num2" placeholder="Второе число">
+    <br><br>
+    <button id="add">+</button>
+    <button id="subtract">-</button>
+    <button id="multiply">*</button>
+    <button id="divide">/</button>
+    <p id="calcResult"></p>
+
+    <script>
+        document.getElementById("add").addEventListener("click", function() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            document.getElementById("calcResult").innerText = `Результат: ${num1 + num2}`;
+        });
+
+        document.getElementById("subtract").addEventListener("click", function() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            document.getElementById("calcResult").innerText = `Результат: ${num1 - num2}`;
+        });
+
+        document.getElementById("multiply").addEventListener("click", function() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            document.getElementById("calcResult").innerText = `Результат: ${num1 * num2}`;
+        });
+
+        document.getElementById("divide").addEventListener("click", function() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            if (num2 !== 0) {
+                document.getElementById("calcResult").innerText = `Результат: ${num1 / num2}`;
+            } else {
+                document.getElementById("calcResult").innerText = "Деление на ноль невозможно!";
+            }
+        });
+    </script>
+</body>
+</html>

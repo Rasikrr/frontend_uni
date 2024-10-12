@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Tool</title>
+</head>
+<body>
+    <h1>Инструмент сортировки чисел</h1>
+    <input type="text" id="numbers" placeholder="Введите числа через запятую">
+    <br><br>
+    <button id="sortAsc">Сортировать по возрастанию</button>
+    <button id="sortDesc">Сортировать по убыванию</button>
+    <p id="sortedResult"></p>
+
+    <script>
+        document.getElementById("sortAsc").addEventListener("click", function() {
+            const input = document.getElementById("numbers").value;
+            const numArray = input.split(",").map(Number).filter(n => !isNaN(n));
+            numArray.sort((a, b) => a - b);
+            document.getElementById("sortedResult").innerText = `Результат (возрастание): ${numArray.join(", ")}`;
+        });
+
+        document.getElementById("sortDesc").addEventListener("click", function() {
+            const input = document.getElementById("numbers").value;
+            const numArray = input.split(",").map(Number).filter(n => !isNaN(n));
+            numArray.sort((a, b) => b - a);
+            document.getElementById("sortedResult").innerText = `Результат (убывание): ${numArray.join(", ")}`;
+        });
+    </script>
+</body>
+</html>

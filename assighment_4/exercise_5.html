@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+</head>
+<body>
+    <h1>Налоговый калькулятор</h1>
+    <input type="number" id="price" placeholder="Введите стоимость автомобиля">
+    <button id="calculateTax">Рассчитать налог</button>
+    <p id="taxResult"></p>
+
+    <script>
+        document.getElementById("calculateTax").addEventListener("click", function() {
+            const price = parseFloat(document.getElementById("price").value);
+            let tax;
+
+            if (price > 10000) {
+                tax = price * 0.25;
+            } else if (price >= 5000) {
+                tax = price * 0.20;
+            } else {
+                tax = price * 0.15;
+            }
+
+            document.getElementById("taxResult").innerText = `Налог: $${tax.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>

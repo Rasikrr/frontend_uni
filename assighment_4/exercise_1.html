@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="change-bg">Изменить фон</button>
+    <button id="change-img">Изменить изображение</button>
+    <button id="change-text">Изменить текст</button>
+
+    <p id="text">Это оригинальный текст</p>
+    <img id="image" src="https://via.placeholder.com/150" alt="Placeholder Image">
+
+    <script>
+        document.getElementById("change-bg").addEventListener("click", function() {
+            document.body.style.backgroundColor = "#f0f0f0";
+        });
+
+        document.getElementById("change-img").addEventListener("click", function() {
+            document.getElementById("image").src = "https://via.placeholder.com/300";
+        });
+
+        document.getElementById("change-text").addEventListener("click", function() {
+            document.getElementById("text").innerText = "Текст изменен!";
+        });
+    </script>
+</body>
+</html>
