@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Камень, Ножницы, Бумага</title>
+</head>
+<body>
+    <h2>Игра Камень, Ножницы, Бумага</h2>
+    <button onclick="play('Камень')">Камень</button>
+    <button onclick="play('Ножницы')">Ножницы</button>
+    <button onclick="play('Бумага')">Бумага</button>
+    <p id="result"></p>
+
+    <script>
+        function play(userChoice) {
+            const choices = ["Камень", "Ножницы", "Бумага"];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            let result;
+            if (userChoice === computerChoice) result = "Ничья!";
+            else if (
+                (userChoice === "Камень" && computerChoice === "Ножницы") ||
+                (userChoice === "Ножницы" && computerChoice === "Бумага") ||
+                (userChoice === "Бумага" && computerChoice === "Камень")
+            ) result = `Вы победили! Компьютер выбрал ${computerChoice}`;
+            else result = `Вы проиграли. Компьютер выбрал ${computerChoice}`;
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

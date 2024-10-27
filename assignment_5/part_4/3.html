@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop</title>
+    <style>
+        #drop-zone {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .draggable {
+            width: 50px;
+            height: 50px;
+            background-color: #2196F3;
+            margin: 5px;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <div class="draggable" draggable="true" ondragstart="drag(event)" id="drag1"></div>
+    <div class="draggable" draggable="true" ondragstart="drag(event)" id="drag2"></div>
+    <div id="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Перетащите сюда
+    </div>
+
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</body>
+</html>

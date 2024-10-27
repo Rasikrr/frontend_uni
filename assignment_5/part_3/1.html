@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="radius" placeholder="Радиус">
+    <button onclick="calculateSphereVolume()">Вычислить объем</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateSphereVolume() {
+            const radius = document.getElementById("radius").value;
+            const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+            document.getElementById("result").innerText = `Объем: ${volume.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

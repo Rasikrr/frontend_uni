@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="paragraph">Аптека яркий маяк для здоровья.</p>
+    <script>
+        const paragraph = document.getElementById("paragraph");
+        paragraph.innerHTML = paragraph.innerHTML.split(" ").map(word => {
+            if (word.startsWith("а")) return `<i>${word}</i>`;
+            if (word.endsWith("й")) return `<u>${word}</u>`;
+            return word;
+        }).join(" ");
+    </script>
+</body>
+</html>

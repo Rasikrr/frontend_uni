@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="a" placeholder="Длина стороны a">
+    <input type="number" id="b" placeholder="Длина стороны b">
+    <input type="number" id="height" placeholder="Высота">
+    <button onclick="calculatePrismVolume()">Вычислить объем</button>
+    <p id="result"></p>
+
+    <script>
+        function calculatePrismVolume() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const height = document.getElementById("height").value;
+            const volume = a * b * height;
+            document.getElementById("result").innerText = `Объем: ${volume.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

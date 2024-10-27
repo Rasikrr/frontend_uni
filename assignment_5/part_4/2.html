@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-календарь</title>
+    <style>
+        #calendar {
+            width: 250px;
+            font-family: Arial, sans-serif;
+        }
+
+        #calendar h2 {
+            text-align: center;
+        }
+
+        #calendar button {
+            width: 20%;
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar">
+        <button onclick="changeMonth(-1)">&#8592;</button>
+        <h2 id="month-year"></h2>
+        <button onclick="changeMonth(1)">&#8594;</button>
+        <table id="dates"></table>
+    </div>
+
+    <script>
+        const date = new Date();
+        function renderCalendar() {
+            date.setDate(1);
+            const monthDays = document.getElementById("dates");
+            const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+            const firstDayIndex = date.getDay();
+            const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+            document.getElementById("month-year").innerText = `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+            monthDays.innerHTML = "<tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr>";
+            let days = "<tr>";
+            for (let x = 0; x < firstDayIndex - 1; x++) {
+                days += "<td></td>";
+            }
+            for (let i = 1; i <= lastDay; i++) {
+                days += `<td>${i}</td>`;
+                if ((i + firstDayIndex - 1) % 7 === 0) days += "</tr><tr>";
+            }
+            monthDays.innerHTML += days;
+        }
+        function changeMonth(change) {
+            date.setMonth(date.getMonth() + change);
+            renderCalendar();
+        }
+        renderCalendar();
+    </script>
+</body>
+</html>

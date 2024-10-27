@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputText" placeholder="Введите текст">
+    <button onclick="replaceChars()">Заменить</button>
+
+    <script>
+        function replaceChars() {
+            const input = document.getElementById("inputText").value;
+            const result = input.replace(/[a-zA-Z]/g, char =>
+                String.fromCharCode(char.charCodeAt(0) + 1)
+            );
+            alert(`Результат: ${result}`);
+        }
+    </script>
+</body>
+</html>

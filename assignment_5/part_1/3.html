@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputText" placeholder="Введите текст">
+    <button onclick="findFirstUnique()">Найти</button>
+    <p id="result"></p>
+
+    <script>
+        function findFirstUnique() {
+            const input = document.getElementById('inputText').value;
+            const char = input.split('').find((c, _, arr) => arr.indexOf(c) === arr.lastIndexOf(c));
+            document.getElementById('result').innerText = char ? `Первый уникальный символ: ${char}` : "Нет уникальных символов";
+        }
+    </script>
+</body>
+</html>

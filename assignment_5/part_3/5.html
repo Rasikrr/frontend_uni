@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="base" placeholder="Основание">
+    <input type="number" id="height" placeholder="Высота">
+    <button onclick="calculateTriangleArea()">Вычислить площадь</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateTriangleArea() {
+            const base = document.getElementById("base").value;
+            const height = document.getElementById("height").value;
+            const area = 0.5 * base * height;
+            document.getElementById("result").innerText = `Площадь: ${area.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

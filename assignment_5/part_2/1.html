@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="paragraph">Введите текст, содержащий слова разной длины.</p>
+    <script>
+        const paragraph = document.getElementById("paragraph");
+        const words = paragraph.innerText.split(" ");
+        paragraph.innerHTML = words.map(word => {
+            if (word.length > 7) return `<span style="background-color:blue">${word}</span>`;
+            if (word.length < 3) return `<b>${word}</b>`;
+            return word;
+        }).join(" ");
+    </script>
+</body>
+</html>
